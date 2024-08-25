@@ -1,0 +1,403 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.953); /* Dark background */
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays on top */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    padding: 0 15px; /* Horizontal padding */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.navbar img {
+    height: 40px; /* Adjust height as needed */
+    margin-right: auto; /* Push links to the right */
+}
+
+.navbar a {
+    display: block;
+    color: #f5f5f5; /* Lighter font color */
+    text-align: center;
+    padding: 8px 12px; /* Reduced padding */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    color: #fff; /* White on hover */
+}
+
+/* Banner Section */
+.banner {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide overflowing content */
+    margin-top: 0; /* Remove any margin to align with navbar */
+    padding-top: 60px; /* Ensure content starts below navbar */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+/* Overlay for Darkening the Banner */
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+/* Active slide */
+.slide.active {
+    opacity: 1;
+}
+
+/* Logo Container */
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the logo */
+    z-index: 2; /* Ensure the logo is on top of the slides */
+}
+
+.logo-container img {
+    max-width: 300px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.welcome-section h2 {
+    color: #030303;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Gallery Highlight */
+.gallery-highlight {
+    display: flex;
+    margin: 50px 20px;
+    background-color: #fff; /* White background for the entire section */
+    padding: 20px; /* Add padding to ensure content doesn’t touch the edges */
+    border-radius: 8px; /* Optional: Adds rounded corners for a cleaner look */
+}
+
+.gallery-description {
+    flex: 1;
+    padding-right: 20px;
+    background-color: #fff; /* Ensure white background */
+}
+
+.gallery-description h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.gallery-description p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.gallery-slideshow {
+    flex: 1;
+    position: relative;
+    height: 300px; /* Adjust height as needed */
+    background-color: #fff; /* White background for the slideshow area */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    overflow: hidden; /* Ensures content doesn’t overflow */
+}
+
+/* Ensure the slides have the correct background */
+.slide-gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-color: #fff; /* White background for each slide */
+}
+
+.slide-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+/* Active slide in gallery */
+.slide-gallery.active {
+    opacity: 1;
+}
+
+/* Contact Information */
+.contact-info {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.contact-info h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Social Media Icons */
+.social-media {
+    position: fixed; /* Fix to the bottom of the viewport */
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px; /* Space between icons */
+    z-index: 10; /* Ensure icons are on top of other content */
+}
+
+.social-icon img {
+    width: 30px; /* Size of icons */
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon img:hover {
+    opacity: 0.8; /* Slightly fade on hover */
+}
+
+/* Newsletter Section */
+.newsletter {
+    padding: 30px 20px;
+    background-color: #f8f8f8; /* Light background color */
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #555;
+}
+
+/* About Section */
+.about-section {
+    padding: 50px 20px;
+    text-align: center; /* Center the text */
+    background-color: #fff; /* White background for the section */
+}
+
+.about-section h2 {
+    font-size: 36px; /* Adjust size as needed */
+    color: #030303; /* Dark text color */
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #555;
+    max-width: 800px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center the paragraph */
+    line-height: 1.6; /* Improve line spacing */
+}
+
+/* Menu Section */
+.menu-section {
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+}
+
+.menu-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between items */
+}
+
+.menu-item {
+    background-color: #fff; /* White background for menu items */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for 3D effect */
+    overflow: hidden; /* Ensure the image and text stay within the item */
+    width: 250px; /* Adjust width as needed */
+    text-align: center; /* Center the text */
+    padding: 10px; /* Padding inside the item */
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-bottom: 1px solid #ddd; /* Separator between image and text */
+}
+
+.menu-item h3 {
+    font-size: 20px;
+    color: #030303;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.menu-item span {
+    display: block;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Event Section */
+.event-section {
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+.event-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.event-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between sections */
+}
+
+.event-details {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.event-details h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.event-details p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.event-gallery {
+    flex: 1;
+    max-width: 50%;
+    position: relative;
+    height: 300px; /* Adjust height as needed */
+    background-color: #fff; /* White background for the gallery area */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    overflow: hidden; /* Ensures content doesn’t overflow */
+}
+
+.slide-gallery {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-color: #fff; /* White background for each slide */
+}
+
+.slide-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.slide-gallery.active {
+    opacity: 1;
+}
+.note {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
